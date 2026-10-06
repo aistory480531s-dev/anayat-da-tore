@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ANAYAT DA STORE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="authScreen" class="auth-screen">
+    <div class="auth-card">
+      <div class="brand">ANAYAT <span>DA STORE</span></div>
+      <p class="muted">Men & Women Fashion Store</p>
+      <div class="tabs">
+        <button class="tab active" data-auth="login">Login</button>
+        <button class="tab" data-auth="signup">Sign Up</button>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <input id="loginEmail" type="email" placeholder="Email address" required>
+        <input id="loginPassword" type="password" placeholder="Password" required>
+        <button class="primary-btn" type="submit">Login</button>
+        <p id="loginMsg" class="form-msg"></p>
+      </form>
+
+      <form id="signupForm" class="auth-form hidden">
+        <input id="signupName" type="text" placeholder="Full name" required>
+        <input id="signupPhone" type="tel" placeholder="Phone number" required>
+        <input id="signupEmail" type="email" placeholder="Email address" required>
+        <input id="signupPassword" type="password" placeholder="Password (min 6 characters)" minlength="6" required>
+        <button class="primary-btn" type="submit">Create Account</button>
+        <p id="signupMsg" class="form-msg"></p>
+      </form>
+    </div>
+  </div>
+
+  <div id="storeApp" class="hidden">
+    <header class="header">
+      <a class="brand" href="#">ANAYAT <span>DA STORE</span></a>
+      <nav>
+        <button class="nav-btn" data-filter="all">All</button>
+        <button class="nav-btn" data-filter="men">Men</button>
+        <button class="nav-btn" data-filter="women">Women</button>
+        <button class="nav-btn" id="ordersBtn">My Orders</button>
+        <button class="cart-btn" id="cartBtn">Cart <b id="cartCount">0</b></button>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">NEW COLLECTION 2026</p>
+          <h1>Style that<br><span>speaks for you.</span></h1>
+          <p>Premium fashion for men and women. Shop your favourite looks from ANAYAT DA STORE.</p>
+          <button class="primary-btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+        </div>
+      </section>
+
+      <section class="shop-section" id="products">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">OUR COLLECTION</p>
+            <h2>Trending Products</h2>
+          </div>
+          <input id="searchBox" class="search" type="search" placeholder="Search clothes...">
+        </div>
+        <div id="productGrid" class="product-grid"></div>
+      </section>
+    </main>
+
+    <div id="cartDrawer" class="drawer hidden">
+      <div class="drawer-panel">
+        <div class="drawer-head"><h2>Your Cart</h2><button class="close-btn" onclick="closeCart()">×</button></div>
+        <div id="cartItems"></div>
+        <div class="cart-total"><span>Total</span><strong id="cartTotal">Rs. 0</strong></div>
+        <button class="primary-btn full" id="checkoutBtn">Checkout</button>
+      </div>
+    </div>
+
+    <div id="checkoutModal" class="modal hidden">
+      <div class="modal-card">
+        <button class="close-btn" onclick="closeCheckout()">×</button>
+        <h2>Checkout</h2>
+        <p class="muted">Enter your delivery details.</p>
+        <form id="checkoutForm">
+          <input id="customerName" required placeholder="Full name">
+          <input id="customerPhone" required placeholder="Phone number">
+          <textarea id="customerAddress" required placeholder="Complete delivery address"></textarea>
+          <select id="paymentMethod">
+            <option value="Cash on Delivery">Cash on Delivery</option>
+          </select>
+          <div class="checkout-summary">
+            <span>Total</span><strong id="checkoutTotal">Rs. 0</strong>
+          </div>
+          <button class="primary-btn full" type="submit">Place Order</button>
+        </form>
+        <div id="orderSuccess" class="success-box hidden"></div>
+      </div>
+    </div>
+
+    <div id="ordersModal" class="modal hidden">
+      <div class="modal-card wide">
+        <button class="close-btn" onclick="closeOrders()">×</button>
+        <h2>My Orders</h2>
+        <div id="ordersList"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ANAYAT DA STORE - Admin</title><link rel="stylesheet" href="style.css"></head>
+<body>
+<div id="adminLogin" class="auth-screen"><div class="auth-card"><div class="brand">ANAYAT <span>DA STORE</span></div><p>Admin Panel</p>
+<form id="adminLoginForm" class="auth-form"><input id="adminUser" placeholder="Username" required><input id="adminPass" type="password" placeholder="Password" required><button class="primary-btn">Login</button><p id="adminMsg" class="form-msg"></p></form>
+<p class="muted">Default: admin / admin123</p></div></div>
+<div id="adminApp" class="hidden"><header class="header"><a class="brand" href="index.html">ANAYAT <span>DA STORE</span></a><nav><button class="nav-btn" onclick="showOrders()">Orders</button><button class="nav-btn" onclick="showProducts()">Products</button><button class="logout-btn" onclick="adminLogout()">Logout</button></nav></header>
+<main class="shop-section"><div id="adminContent"></div></main></div>
+<script src="admin.js"></script></body></html>
